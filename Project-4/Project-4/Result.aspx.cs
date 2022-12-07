@@ -25,7 +25,7 @@ namespace Project_4
                 TableCell td4 = new TableCell();
                 TableCell td5 = new TableCell();
                 HyperLink link = new HyperLink();
-                string[] len = File.ReadAllLines($"C:\\Users\\dell\\Project-4\\Project-4\\Project-4\\User\\{employee.Substring(path.Length + 1)}");
+                string[] len = File.ReadAllLines($"C:\\Project-4\\Project-4\\Project-4\\User\\{employee.Substring(path.Length + 1)}");
                 string email = len[len.Length - 1];
                 td1.ID = "num";
                 td2.ID = "Enum";

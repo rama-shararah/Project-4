@@ -17,9 +17,9 @@ namespace Project_4
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            string[] userName = { "Mohammad Alshraideh","Momen AbuAlhaija", "Odai Alghaniem","Rama Shararah","Rogina Irshaidat","Razan Smadi","Alaa Qazaq", "Rami Mohammed", "Rand Irshaidat", "Agead Moh" , "a" };
-            string[] email = { "mohammad_alshraideh@gmail.com", "momen.abuAlhaija@gmail.com", "odaialghaniem@gmail.com", "ramashararah99@gmail.com", "roginairshaidat@gmail.com", "smadirazan@gmail.com", "alaa.qazaq@gmail.com", "rami_mohammed@gmail.com", "irshaidatrand@gmail.com", "agead_moh@gmail.com" , "asdd@gmail.com"};
-            string[] emp_id = { "18", "20", "24", "29","32","30","2022","36","37","38","40"};
+            string[] userName = { "Mohammad Alshraideh", "Momen AbuAlhaija", "Odai Alghaniem", "Rama Shararah", "Rogina Irshaidat", "Razan Smadi", "Alaa Qazaq", "Rami Mohammed", "Rand Irshaidat", "Agead Moh", "a" };
+            string[] email = { "mohammad_alshraideh@gmail.com", "momen_abuAlhaija@gmail.com", "odai_alghaniem@gmail.com", "rama_shararah99@gmail.com", "rogina_irshaidat@gmail.com", "smadi_razan@gmail.com", "alaa.qazaq@gmail.com", "rami_mohammed@gmail.com", "irshaidat_rand@gmail.com", "agead_moh@gmail.com", "razan_rr@gmail.com" };
+            string[] emp_id = { "18", "20", "24", "29", "32", "30", "2022", "36", "37", "38", "40" };
 
 
             for (int i = 0; i < email.Length; i++)
@@ -33,7 +33,7 @@ namespace Project_4
                     string user_result = Server.MapPath("User");
                     var user = Directory.EnumerateFiles(user_result).Select(Path.GetFileName);
                     bool flag = true;
-                    foreach (string check in user) 
+                    foreach (string check in user)
                     {
                         string[] name = check.Split('_');
                         if (empId.Text == name[0])
@@ -46,7 +46,8 @@ namespace Project_4
                     {
                         Response.Redirect("surveyPage.aspx?username=" + username.Text + "&empId=" + empId.Text);
                     }
-                    else {
+                    else
+                    {
                         Response.Write("<script> alert('You toke the survey ') </script>");
                         return;
 

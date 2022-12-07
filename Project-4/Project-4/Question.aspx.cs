@@ -25,8 +25,8 @@ namespace Project_4
             Question[9] = EnterQuestion10.Text;
 
 
-            File.WriteAllLines("C:\\Users\\dell\\Project-4\\Project-4\\Project-4\\q.txt" ,Question);
-            string[] a = File.ReadAllLines("C:\\Users\\dell\\Project-4\\Project-4\\Project-4\\q.txt");
+            File.WriteAllLines("C:\\Project-4\\Project-4\\Project-4\\q.txt" ,Question);
+            string[] a = File.ReadAllLines("C:\\Project-4\\Project-4\\Project-4\\q.txt");
             int count = 0;
             int t = 0;
             foreach (string s in a)
@@ -50,7 +50,7 @@ namespace Project_4
                 }
             }
 
-            File.WriteAllLines("C:\\Users\\dell\\Project-4\\Project-4\\Project-4\\q.txt", arr);
+            File.WriteAllLines("C:\\Project-4\\Project-4\\Project-4\\q.txt", arr);
 
 
             Response.Redirect("Bye.aspx");

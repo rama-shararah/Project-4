@@ -4,11 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title> Thanck You</title>
+    <title>Thanck You</title>
     <meta name="viewport" content="width=device-width, scale=1.0" />
     <style>
         body {
-           background-image: url('../image/background.png');
+            background-image: url('../image/background.png');
             background-size: cover;
             background-repeat: no-repeat;
             height: 96vh;
@@ -57,17 +57,19 @@
         }
 
         #Label1 {
-            font-size: 100px;
+            font-size: 80px;
             position: absolute;
             top: 26%;
-            left: 28%;
+            left: 23%;
+            text-align: center;
+            color: forestgreen;
         }
 
         @media only screen and (min-device-width: 0px) and (max-device-width: 480px) {
             #Label1 {
-                font-size: 35px;
+                font-size: 30px;
                 text-align: center;
-                left: 13%;
+                left: 5%;
             }
 
             #con {
@@ -95,9 +97,9 @@
 
         @media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
             #Label1 {
-                font-size: 70px;
+                font-size: 55px;
                 text-align: center;
-                left: 20%
+                left: 14%
             }
 
             .button {
@@ -123,7 +125,7 @@
 
 
             <div>
-                <asp:Label ID="Label1" runat="server" Text="Thank You"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Thank You"><span id="Namee" runat="server"></span></asp:Label>
             </div>
 
             <asp:Button CssClass="button" ID="Button1" runat="server" Text="Log out" OnClick="Button1_Click" />

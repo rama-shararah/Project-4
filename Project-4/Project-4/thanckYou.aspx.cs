@@ -11,6 +11,13 @@ namespace Project_4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string name = Request.QueryString["username"];
+
+            string[] userName = name.Split('_');
+
+            Namee.InnerText = "     " + userName[0];
+
+
 
         }
 

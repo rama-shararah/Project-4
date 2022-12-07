@@ -12,13 +12,13 @@ namespace Project_4
     public partial class surveyPage : System.Web.UI.Page
     {
         static int y = 0;
-        static string[] lines = File.ReadAllLines(@"C:\Users\dell\Project-4\Project-4\Project-4\q.txt");
+        static string[] lines = File.ReadAllLines(@"C:\Project-4\Project-4\Project-4\q.txt");
         static string[] question = new string[lines.Length];
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            string path = @"C:\Users\dell\Project-4\Project-4\Project-4\q.txt";
+            string path = @"C:\Project-4\Project-4\Project-4\q.txt";
             lines = File.ReadAllLines(path);
 
             if (!IsPostBack)
@@ -32,12 +32,13 @@ namespace Project_4
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string name = Request.QueryString["username"];
 
 
 
             string[] lines;
 
-            string path = @"C:\Users\dell\Project-4\Project-4\Project-4\q.txt";
+            string path = @"C:\Project-4\Project-4\Project-4\q.txt";
             lines = File.ReadAllLines(path);
             if (y >= lines.Length - 1)
             {
@@ -45,18 +46,19 @@ namespace Project_4
                 DateTime time = DateTime.Now;
                 string ttime = time.ToString("M-d-yyyy");
                 string id = Request.QueryString["empId"];
-               string email = Session["email"].ToString();
+                string email = Session["email"].ToString();
                 question[y] = lines[y] + ": " + RadioButtonList1.Text;
 
-                File.Create($@"C:\Users\dell\Project-4\Project-4\Project-4\User\{id}_{ttime}.txt").Close();
-                File.WriteAllLines($@"C:\Users\dell\Project-4\Project-4\Project-4\User\{id}_{ttime}.txt", question);
-                StreamWriter empFile = new StreamWriter($@"C:\Users\dell\Project-4\Project-4\Project-4\User\{id}_{ttime}.txt" , append:true);
-                
+                File.Create($@"C:\Project-4\Project-4\Project-4\User\{id}_{ttime}.txt").Close();
+                File.WriteAllLines($@"C:\Project-4\Project-4\Project-4\User\{id}_{ttime}.txt", question);
+                StreamWriter empFile = new StreamWriter($@"C:\Project-4\Project-4\Project-4\User\{id}_{ttime}.txt", append: true);
+
                 empFile.WriteLine(email);
                 empFile.Close();
-              
+
                 y = 0;
-                Response.Redirect("thanckYou.aspx");
+                Response.Redirect("thanckYou.aspx?username=" + name);
+
 
 
 
@@ -74,6 +76,7 @@ namespace Project_4
             if (RadioButtonList1.Text.Length > 0)
             {
                 Label1.Text = lines[y + 1];
+
 
                 question[y] = lines[y] + ": " + RadioButtonList1.Text;
                 y++;
